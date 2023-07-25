@@ -1,0 +1,82 @@
+<div class="calendar">
+<div class="calendar-head" >
+    <div class="h-calendar col-5 "> My Calendar </div>
+    <div class="h-new col-5"><button class="btn-new" (click)="openModal(temp)">New</button>
+    </div>
+</div>
+
+<div class="container">
+<div class="month">
+    <button (click)="goBack()" class="btn-month"> 
+        <span class="material-symbols-outlined">chevron_left</span>
+    </button> 
+    <div class="sel-day">{{selectedMonth}} 2023</div> 
+    <button (click)="goFront()" class="btn-month"> 
+        <span class="material-symbols-outlined">chevron_right</span> 
+    </button>
+</div>
+<div class="days">
+    <div *ngFor="let d of days">{{d.d}}
+        <div *ngFor="let t of d.task" class="task" (click)="modify(d.task,t)" id={{t}} (click)="editModal(tempChange,d,t)">{{t}}</div>
+    </div>
+    
+</div>
+</div>
+</div>
+
+
+<ng-template #temp>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Add A Task</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+           <span aria-hidden="true">×</span>
+        </button>
+     </div>
+     <input type="text" class="inp" [(ngModel)]="title" name="title" placeholder="Add A Task Here"/>
+    <div class="modal-body">
+        <input type="text"
+         placeholder="Pick a date"
+         class="form-control"
+         bsDatepicker
+         [minDate]="minDate"
+         [maxDate]="maxDate"
+         [bsValue]="bsValue"
+         [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }"
+         [(ngModel)]="date">
+        </div>
+        <div>
+            <button (click)="saveData()" [ngClass]="{'conf-disabled':!title.length,'conf':title.length}">Confirm</button>
+            <button class="cancel" (click)="cancelDate()">Cancel</button>
+        </div>
+        <br/>
+     
+    </ng-template>
+
+    <ng-template #tempChange>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Edit/Delete A Task</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+               <span aria-hidden="true">×</span>
+            </button>
+         </div>
+            <select id="inputState" #drp (change)="selectOption(drp.value)" required class="drp">
+            <option value="" selected>Select</option>
+            <option *ngFor="let optionName of formFields" [value]="optionName">{{optionName}}</option>
+        </select>
+        <ng-container *ngIf="option=='Edit'">
+            <input type="text" class="inp" [(ngModel)]="editedTitle" name="editedTitle" placeholder="Edit A Task Here"/>
+        </ng-container>
+            <div>
+                <button class="conf" (click)="deleteTask()" *ngIf="option=='Delete'">Delete</button>
+                <button class="conf" (click)="changeData()" *ngIf="option=='Edit'">Change</button>
+                <button class="cancel" (click)="cancelDate()">Cancel</button>
+            </div>
+            <br/>
+         
+        </ng-template>
+
+
+
+
+    
+

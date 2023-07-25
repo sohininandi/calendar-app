@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0");
+.calendar{
+    font-family: 'Poppins';
+    margin: auto 5px;
+    background: #F2F6F8;
+
+}
+
+.month{
+    height: 10vh;
+    width: 90%;
+    padding-top: 12px;
+    /* justify-content: center; */
+    font-size: 16px;
+    text-align: center;
+
+}
+
+.calendar-head{
+height: 60px;
+padding: 10px;
+box-shadow: 1px 2px 13px #ececec;
+background-color: #FFFFFF;
+
+}
+
+.h-calendar{
+float: left;
+width: 50%;
+}
+.h-new{
+    float: right;
+}
+
+.btn-new{
+height: 30px;
+width: 90px;
+background: #DD296F;
+color: #F2F6F8;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+float: right;
+}
+
+.container{
+    width: 95%;
+    height: 90vh;
+    background: white;
+    margin: 30px auto;
+    overflow: scroll;
+}
+
+.days{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.days div{
+    height: 150px;
+    width: 12%;
+    flex-grow: 1;
+    border: 1px solid #dcdcdc;
+    margin: 10px;
+    padding-top: 12px;
+    padding-left: 10px; 
+    display: flex;
+    flex-direction: column
+}
+
+.days div div{
+    color: #ffffff;
+    background: #DD296F;
+    font-size: 11px;
+    width: 90%;
+    padding: 2px !important;
+    margin: 0px ;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 1px;
+}
+
+
+
+.btn-month{
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    background: none;
+    position: relative;
+    top: 5px
+}
+.sel-day{
+display: inline-block;
+}
+
+.modal-dialog {
+    position: relative;
+    top: 12px;
+    vertical-align:middle;
+    height:18em;
+    background-color: rgba(0,0,0,0.5); 
+}
+.inp{
+    height: 50px;
+    width: 88%;
+    margin: 20px;
+}
+.pick-date{
+    width: 150px;
+    float: left;
+}
+
+.modal-btn{
+    border: none;
+    height: 50px;
+    width: 87px;
+    border-radius: 9px;
+}
+.conf{
+position: relative;
+float: right;
+@extend .modal-btn;
+background: #DD296F;
+color: #FFFFFF;
+margin-right: 23px;
+}
+
+.conf-disabled{
+    position: relative;
+    float: right;
+    @extend .modal-btn;
+    background: #dcdcdc;
+    color: #FFFFFF;
+    margin-right: 23px;
+    pointer-events: none;
+    }
+
+.cancel{
+    position: relative;
+    right: 12px;
+    float:right;
+    @extend .modal-btn;
+}
+.del{
+    @extend .modal-btn;
+    width: 100px;
+    background: #DD296F;
+}
+
+.drp{
+    height: 56px;
+    width: 50%;
+    /* text-align: center; */
+    align-items: center;
+    margin: 5px auto;
+}
